@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Dharaneesh Guhan</title>
-    <style>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Portfolio - Dharaneesh Guhan</title>
+            <style>
         body {
             margin: 0;
             padding: 0;
@@ -31,6 +31,7 @@
         .header h1 {
             margin: 0;
             font-size: 24px;
+            color: black;
             flex-grow: 1;
             text-align: left;
         }
@@ -84,14 +85,59 @@
             text-align: center;
         }
 
-        .welcome-text {
-            font-size: 36px;
-            margin-bottom: 20px;
+        .typing-container {
+            display: flex;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .typing, .typing-second {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid;
+        }
+
+        .typing {
+            animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+        }
+
+        .typing-second {
+            color: #FF5733;
+            animation: none;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: black;
+            }
+        }
+
+        /* Hide the cursor after typing */
+        .no-blink {
+            border-right: none;
         }
 
         .intro-text {
             text-align: left;
-            font-size: 18px;
+            color: black;
+            font-size: 15px;
             margin-bottom: 30px;
         }
 
@@ -118,9 +164,11 @@
         /* Contact Button */
         .contact-btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: #1E1D43;
             color: white;
+            left: 75px;
+            border-radius: 7px;
             font-size: 18px;
             border: none;
             cursor: pointer;
@@ -217,6 +265,7 @@
                 display: none;
             }
         }
+
         /* Skills Panel Styles */
         .skills-panel {
             max-width: 100%;
@@ -263,14 +312,17 @@
         .projects-section {
             text-align: center;
         }
+
         .projects-section h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
+
         .projects-section p {
             font-size: 1rem;
             margin-bottom: 20px;
         }
+
         .view-project-button {
             background-color: #007BFF;
             color: white;
@@ -279,19 +331,12 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         .view-project-button:hover {
             background-color: #0056b3;
         }
-        
-        body {
-            font-family: Arial, sans-serif;
-            
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+        /* Certifications Section */
         .certifications-section {
             background-color: #1E1D43;
             padding: 30px;
@@ -350,13 +395,6 @@
         }
 
         /* Education Section */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Full-screen section with light pink to white color gradient */
         .education-section {
             width: 100vw;
             background: linear-gradient(to bottom, #ffe6e6, #ffffff); /* Light pink to white gradient */
@@ -377,6 +415,7 @@
             color: #333;
             margin-bottom: 40px;
         }
+
         /* Individual education items with a pinkish white gradient */
         .education-item {
             background: linear-gradient(to right, #ffe6e6, #ffffff); /* Light pink to white gradient for each card */
@@ -418,42 +457,28 @@
             max-width: 100%;
             margin: 20px auto;
             padding: 20px;
-            background: linear-gradient(to bottom, #f0e68c, #fefbd8);
+            background: linear-gradient(to bottom, #001f3f, #00172b); /* Dark blue gradient */
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .contact-section h1 {
-            width: 100%; /* Ensures the element spans the full width */
-            text-align: center; /* Centers the text */
-            font-size: 36px;
-            color: #333;
+            font-size: 24px;
+            font-weight: bold;
             margin-bottom: 20px;
-            display: block;
-            padding: 0; /* Resets any padding that could affect alignment */
+            color: #FFC900;
         }
         .contact-section h2 {
-            width: 100%; /* Ensures the element spans the full width */
-            font-size: 36px;
-            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
             margin-bottom: 20px;
-            display: block;
-            padding: 0; /* Resets any padding that could affect alignment */
+            color: white;
         }
-        .contact-section h4 {
-            width: 100%; /* Ensures the element spans the full width */
-            text-align: center; /* Centers the text */
-            font-size: 36px;
-            color: #fff;
+        .contact-section p {
+            font-size: 18px;
+            font-weight: bold;
             margin-bottom: 20px;
-            display: block;
-            padding: 0; /* Resets any padding that could affect alignment */
-        }
-
-        .contact-section {
-            display: block;
-            flex-direction: column;
-            align-items: center; /* Ensures everything in the contact section is centered horizontally */
+            color: white;
         }
 
         .contact-section form {
@@ -472,7 +497,7 @@
 
         .contact-section button {
             padding: 10px;
-            background-color: #1E1D43;
+            background-color: #FFC900; /* Button color */
             color: white;
             border: none;
             border-radius: 20px;
@@ -481,7 +506,7 @@
         }
 
         .contact-section button:hover {
-            background-color: #0056b3;
+            background-color: #ffdb4d;
         }
 
         /* "Go to Top" Button */
@@ -512,26 +537,28 @@
             text-align: center;
             margin: 50px auto;
             font-size: 18px;
-            background-color: white;
             color: #FFC900;
+            padding-bottom: 50px; /* Ensure space before footer */
         }
 
-        /* Hidden footer section that shows only when you scroll to the bottom */
+        /* Footer Section */
         .footer {
-            display: none; /* Initially hidden */
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
+            color: black;
             background-color: #f5f5f5;
             padding: 20px;
             align-items: center;
             justify-content: flex-start;
         }
+
         .footer img {
             width: 50px;
             margin-right: 10px;
         }
+
         .footer p {
             margin: 0;
             font-size: 18px;
@@ -539,12 +566,10 @@
     </style>
 </head>
 <body>
-
     <!-- Top Bar -->
     <div class="header">
         <img src="path/to/top-logo.png" alt="Logo">
         <h1>Dharaneesh Guhan</h1>
-
         <button class="hamburger-menu" onclick="toggleMenu()">≡</button>
     </div>
 
@@ -557,33 +582,38 @@
     </div>
 
     <!-- Main Panel -->
-    <div class="main-panel">
-        <div class="welcome-text">
-            <span id="part1" style="color: black;"></span>
-            <span id="part2" style="color: #FFD700;"></span>
-        </div>
-        <div class="intro-text">I'm Dharaneesh Guhan, a passionate and versatile coder with expertise in C, C++, and Java, coupled with a solid foundation in app and webpage development. I specialize in crafting efficient, scalable, and user-friendly solutions. My approach combines technical precision with a keen eye for design, ensuring both functionality and an engaging user experience. Constantly exploring new technologies, I aim to stay at the forefront of innovation, delivering creative and robust solutions across platforms.I'm Dharaneesh Guhan, a passionate and versatile coder with expertise in C, C++, and Java...
-        </div>
-
-        <!-- Social Media -->
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/dharaneeshguhan-t-a36140284">
-                <img src="d:\\Quick Share\\Linkedin.jpg" alt="LinkedIn">
-                LinkedIn
-            </a>
-            <a href="https://www.instagram.com/ig_dharaneeshguhan">
-                <img src="d:\\Quick Share\\instagram.jpg" alt="Instagram">
-                Instagram
-            </a>
-            <a href="https://youtube.com/@ihtamil-dg">
-                <img src="d:\\Quick Share\\youtube.jpg" alt="YouTube">
-                YouTube
-            </a>
+        <div class="main-panel">
+           <div class="typing-container">
+                <span class="typing" id="first-sentence">Hi, I'm Dharaneesh Guhan </span>
+                <span class="typing-second" id="second-sentence"></span>
+            </div>
         </div>
 
-        <!-- Contact Button -->
-        <a href="#contact" class="contact-btn">Contact Me -></a>
+    <div class="intro-text">
+        I'm Dharaneesh Guhan, a passionate and versatile coder with expertise in C, C++, and Java, coupled with a solid foundation in app and webpage development. 
+        I specialize in crafting efficient, scalable, and user-friendly solutions. My approach combines technical precision with a keen eye for design, 
+        ensuring both functionality and an engaging user experience. Constantly exploring new technologies, I aim to stay at the forefront of innovation, 
+        delivering creative and robust solutions across platforms.
     </div>
+
+    <!-- Social Media -->
+    <div class="social-media">
+        <a href="https://www.linkedin.com/in/dharaneeshguhan-t-a36140284">
+            <img src="d:\\Bluetooth\\1000064060.png" alt="LinkedIn">
+            LinkedIn
+        </a>
+        <a href="https://www.instagram.com/ig_dharaneeshguhan">
+            <img src="d:\\Bluetooth\\1000064056.png" alt="Instagram">
+            Instagram
+        </a>
+        <a href="https://youtube.com/@ihtamil-dg">
+            <img src="d:\\Quick Share\\youtube.jpg" alt="YouTube">
+            YouTube
+        </a>
+    </div>
+
+    <!-- Contact Button -->
+    <a href="#contact" class="contact-btn">Contact Me -></a>
 
     <!-- About Section -->
     <section id="about" style="padding: 50px 0; background-color: #f7f7f7;">
@@ -591,14 +621,13 @@
             <img src="your-image.jpg" alt="Profile Image">
             <div class="text">
                 <h3>This is Me</h3>
-                <h1>Travor James</h1>
-                <p>
-                    You will begin to realize why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different future).
-                </p>
+                <h1>Dharaneesh Guhan</h1>
+                <p>You will begin to realize why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different future).</p>
                 <button class="btn-primary">Discover Now</button>
             </div>
         </div>
     </section>
+
     <!-- Skills Section -->
     <div id="skills" class="skills-panel">
         <h2>Skills</h2>
@@ -608,77 +637,83 @@
                 <div class="skill-item"><img src="d:\\Quick Share\\graduation.jpg" alt="C"> C</div>
                 <div class="skill-item"><img src="cpp_icon.png" alt="C++"> C++</div>
                 <div class="skill-item"><img src="java_icon.png" alt="Java"> Java</div>
+                <div class="skill-item"><img src="java_icon.png" alt="Java"> HTML</div>
+                <div class="skill-item"><img src="java_icon.png" alt="Java"> CSS</div>
             </div>
         </div>
         <div class="skills-section">
             <h3>Web Technologies</h3>
             <div class="skill-items">
-                <div class="skill-item"><img src="html_icon.png" alt="HTML"> HTML</div>
-                <div class="skill-item"><img src="d:\\Quick Share\\graduation.jpg" alt="CSS"> CSS</div>
-                <div class="skill-item"><img src="js_icon.png" alt="JavaScript"> JavaScript</div>
+                <div class="skill-item"><img src="html_icon.png" alt="HTML"> Firebase </div>
+                <div class="skill-item"><img src="d:\\Quick Share\\graduation.jpg" alt="CSS"> Chatgpt </div>
+                <div class="skill-item"><img src="js_icon.png" alt="JavaScript"> Copilot</div>
             </div>
         </div>
     </div>
 
     <!-- Projects Section -->
-<section id="projects" style="padding: 50px 0; background-color: #ffffff;">
-    <div class="container">
-      <h2 style="text-align: center; color: #333; font-size: 28px; margin-bottom: 20px;">Explore some of my notable Projects</h2>
-      <p style="text-align: center; color: #777; font-size: 16px;">Innovations in Technology and Leadership</p>
-  
-      <!-- Project Card -->
-      <div class="card" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-        <h3 style="color: #d47f00; font-weight: bold;">NearTreat</h3>
-        <p style="color: #777;">Bridging the gap between street food vendors and food lovers. The ultimate destination for the hidden treasures of street food.</p>
-        <h4 style="color: #333;">Domain</h4>
-        <p style="color: #777;">Web development using MERN Stack</p>
-        <h4 style="color: #333;">Tech Stack</h4>
-        <p style="color: #777;">React JS, Node JS, Express JS, MongoDB, Maps API, Tailwind CSS, Firebase, and more</p>
-        <a href="#" class="btn-primary" style="background-color: #ffc107; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Project Link</a>
-      </div>
+    <section id="projects" style="padding: 50px 0; background-color: #ffffff;">
+        <div class="container">
+            <h2 style="text-align: center; color: #333; font-size: 28px; margin-bottom: 20px;">Explore some of my notable Projects</h2>
+            <p style="text-align: center; color: #777; font-size: 16px;">Innovations in Technology and Leadership</p>
+
+            <!-- Project Card -->
+            <div class="card" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #d47f00; font-weight: bold;">SafeMate</h3>
+                <p style="color: #777;">SafeMate is a human safety app that enables secure, peer-to-peer communication using ultrasonic waves, Bluetooth, and Wi-Fi. It allows users to send distress signals and share real-time locations without relying on traditional networks, ensuring safety in emergencies, even without connectivity.</p>
+                <h4 style="color: #333;">Domain</h4>
+                <p style="color: #777;">App development using Java</p>
+                <h4 style="color: #333;">Tech Stack</h4>
+                <p style="color: #777;">Java, Firebase, and more</p>
+                <a href="#" class="btn-primary" style="background-color: #ffc107; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Project Link</a>
+            </div>
+
+            <!-- Another Project Card -->
+            <div class="card" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #d47f00; font-weight: bold;">SerenityMeter</h3>
+                <p style="color: #777;">This app helps users monitor their mental health through AI-driven insights and personalized recommendations. It tracks mood, sleep, and physical activity, offering real-time feedback and intervention tools to improve well-being. Suitable for individuals seeking mental health support and professionals looking to enhance client care.</p>
+                <h4 style="color: #333;">Domain</h4>
+                <p style="color: #777;">App development using Java</p>
+                <h4 style="color: #333;">Tech Stack</h4>
+                <p style="color: #777;">Java, Firebase, AI, and more</p>
+                <a href="#" class="btn-primary" style="background-color: #ffc107; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Project Link</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <div class="education-section">
+        <div class="education-container">
+            <h1 class="education-header">Education</h1>
+            <div class="education-item">
+                <span class="icon"><span class="icon-background">🎓</span></span>
+                <div>
+                    <h3>Sri Eshwar College of Engineering</h3>
+                    <p>2021-2025 | CGPA: 7.82</p>
+                    <p>Bachelors in Electronics and Communication Engineering</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <span class="icon"><span class="icon-background">🎓</span></span>
+                <div>
+                    <h3>Adhaesh Vidhalaya Metric Higher Secondary School</h3>
+                    <p>2021-2023 | Percentage: 78%</p>
+                    <p>Standard - 12th (HSC)</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <span class="icon"><span class="icon-background">🎓</span></span>
+                <div>
+                    <h3>L.K. Higher Secondary School</h3>
+                    <p>2019-2021 | Percentage: 82%</p>
+                    <p>Standard - 10th (SSLC)</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <div class="education-section">
-    <div class="education-container">
-        <h1 class="education-header">Education</h1>
-
-        <div class="education-item">
-            <span class="icon">
-                <span class="icon-background">🎓</span>
-            </span>
-            <div>
-                <h3>Sri Eshwar College of Engineering</h3>
-                <p>2021-2025 | CGPA: 7.82</p>
-                <p>Bachelors in Electronics and Communication Engineering</p>
-            </div>
-        </div>
-
-        <div class="education-item">
-            <span class="icon">
-                <span class="icon-background">🎓</span>
-            </span>
-            <div>
-                <h3>L.K. Higher Secondary School</h3>
-                <p>2019-2021 | Percentage: 87%</p>
-                <p>Standard - 10th (SSLC)</p>
-            </div>
-        </div>
-
-        <div class="education-item">
-            <span class="icon">
-                <span class="icon-background">🎓</span>
-            </span>
-            <div>
-                <h3>L.K. Higher Secondary School</h3>
-                <p>2019-2021 | Percentage: 82%</p>
-                <p>Standard - 12th (HSC)</p>
-            </div>
-            </div>
-        </div>
-    </div>
-       <!-- Certifications Section -->
-       <div class="certifications-section">
+    <!-- Certifications Section -->
+    <div class="certifications-section">
         <h2>Certifications</h2>
         <!-- Surrounding dark blue section for the table -->
         <div class="certification-table-wrapper">
@@ -703,163 +738,148 @@
         <h1>Contact Me</h1>
         <h2>Get in touch</h2>
         <p>Connect with me on social media or send me a message using the form below.</p>
-                <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/dharaneeshguhan-t-a36140284"><img src="linkedin_icon.png" alt="LinkedIn"></a>
-            <a href="https://www.instagram.com/ig_dharaneeshguhan"><img src="instagram_icon.png" alt="Instagram"></a>
-            <a href="https://youtube.com/@ihtamil-dg"><img src="youtube_icon.png" alt="YouTube"></a>
-        </div>
 
-        <form action="service_s64ws2b" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">submit</button>
-        </form>
+        <!-- Social Media Links -->
+    <div class="social-media">
+        <a href="https://www.linkedin.com/in/dharaneeshguhan-t-a36140284">
+            <img src="d:\\Bluetooth\\1000064060.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/ig_dharaneeshguhan">
+            <img src="d:\\Bluetooth\\1000064056.png" alt="Instagram">
+        </a>
+        <a href="https://youtube.com/@ihtamil-dg">
+            <img src="youtube_icon.png" alt="YouTube">
+        </a>
     </div>
 
-    <!-- Go to Top Button -->
-    <button id="goToTopButton" title="Go to Top">↑</button>
+    <!-- Contact Form -->
+    <form action="service_s64ws2b" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
-    <!-- Thank You Section -->
-    <div class="thank-you-section">
-        <p>Thank you for taking the time to read my profile. Feel free to contact me if you want to know more about me or if you have any opportunities that may suit my skills and interests.</p>
-    </div>
+<!-- Go to Top Button -->
+<button id="goToTopButton" title="Go to Top">↑</button>
 
-    <footer class="footer" id="footer">
-        <img src="path/to/footer-logo.png" alt="Footer Logo">
-        <p>Your Name</p>
-    </footer>
+<!-- Thank You Section -->
+<div class="thank-you-section">
+    <p>Thank you for taking the time to read my profile. Feel free to contact me if you want to know more about me or if you have any opportunities that may suit my skills and interests.</p>
+</div>
 
+<footer class="footer" id="footer">
+    <img src="path/to/footer-logo.png" alt="Footer Logo">
+    <p>Dharaneesh Guhan</p>
+</footer>
+<script>
+const secondText = "  Welcome to my portfolio!";
+        let secondIndex = 0;
 
-    <!-- JavaScript for Welcome Text Animation -->
-    <script>
-        // Toggle the visibility of the mobile navigation menu
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
+        // Function to type out the second sentence
+        function typeSecondSentence() {
+            if (secondIndex < secondText.length) {
+                document.getElementById('second-sentence').textContent += secondText.charAt(secondIndex);
+                secondIndex++;
+                setTimeout(typeSecondSentence, 100); // Adjust speed by changing timeout duration
             } else {
-                menu.style.display = 'flex';
+                // Remove the blinking cursor after the second sentence is fully typed
+                document.getElementById('first-sentence').classList.add('no-blink');
+                document.getElementById('second-sentence').classList.add('no-blink');
             }
         }
-    const welcomeTextPart1 = "Welcome to My World : ";
-    const welcomeTextPart2 = "Igniting the Spark of Innovation and Engineering ";
-    let charIndex = 0;
 
-    function typeWelcomeText() {
-        const part1Element = document.getElementById('part1');
-        const part2Element = document.getElementById('part2');
+        // Wait for the first sentence to finish typing, then start typing the second sentence
+        setTimeout(typeSecondSentence, 3500); // Starts typing after the first animation
 
-        if (charIndex < welcomeTextPart1.length) {
-            // Add one character at a time from part1
-            part1Element.innerHTML = welcomeTextPart1.substring(0, charIndex + 1);
-        } else if (charIndex < welcomeTextPart1.length + welcomeTextPart2.length) {
-            // After part1 is done, start typing part2
-            const secondPartIndex = charIndex - welcomeTextPart1.length;
-            part2Element.innerHTML = welcomeTextPart2.substring(0, secondPartIndex + 1);
-        }
-
-        charIndex++;
-        if (charIndex < welcomeTextPart1.length + welcomeTextPart2.length) {
-            setTimeout(typeWelcomeText, 150); // Typing speed
+    function toggleMenu() {
+        const menu = document.getElementById('nav-menu');
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'flex';
         }
     }
 
-    // Call the function when the page loads
-    window.onload = function() {
-        setTimeout(typeWelcomeText, 500); // Add slight delay before starting
+    window.onscroll = function() {
+        var footer = document.getElementById("footer");
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            // Show footer when the user reaches the bottom of the page
+            footer.style.display = "flex";
+        } else {
+            // Hide footer when the user scrolls up
+            footer.style.display = "none";
+        }
     };
-                // Go to Top Button Functionality
-                const goToTopButton = document.getElementById('goToTopButton');
-        goToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+
+    // Sample certificates data
+    const certificates = [
+        {
+            title: 'Figma',
+            organization: 'Guvi Geek Networks, IITM Research Park',
+            issueDate: 'Jan 2024',
+            link: 'https://certificate-link.com/figma'
+        },
+        {
+            title: 'Cloud Computing',
+            organization: 'NPTEL',
+            issueDate: 'Nov 2023',
+            link: 'https://certificate-link.com/cloud-computing'
+        },
+        {
+            title: 'AI For India 2.0',
+            organization: 'GUVI Geek Networks, IITM Research Park',
+            issueDate: 'Aug 2023',
+            link: 'https://certificate-link.com/ai-for-india'
+        },
+        {
+            title: 'Developing Chatbots with Azure',
+            organization: 'LinkedIn',
+            issueDate: 'Feb 2023',
+            link: 'https://certificate-link.com/chatbots-azure'
+        }
+    ];
+
+    // Function to load certificates into the table
+    function loadCertificates() {
+        const certificateList = document.getElementById('certificate-list');
+        certificates.forEach(certificate => {
+            const row = document.createElement('tr');
+
+            // Create cells for each certificate detail
+            const titleCell = document.createElement('td');
+            titleCell.textContent = certificate.title;
+
+            const organizationCell = document.createElement('td');
+            organizationCell.textContent = certificate.organization;
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = certificate.issueDate;
+
+            const linkCell = document.createElement('td');
+            const linkButton = document.createElement('a');
+            linkButton.href = certificate.link;
+            linkButton.textContent = 'View Certificate';
+            linkButton.className = 'view-button';
+            linkButton.target = '_blank';  // Open link in a new tab
+            linkCell.appendChild(linkButton);
+
+            // Append cells to the row
+            row.appendChild(titleCell);
+            row.appendChild(organizationCell);
+            row.appendChild(dateCell);
+            row.appendChild(linkCell);
+
+            // Append the row to the table
+            certificateList.appendChild(row);
         });
-        window.onload = function() {
-            typeWelcomeText();
-        }
+    }
 
-        window.onscroll = function() {
-            var footer = document.getElementById("footer");
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                // Show footer when the user reaches the bottom of the page
-                footer.style.display = "flex";
-            } else {
-                // Hide footer when the user scrolls up
-                footer.style.display = "none";
-            }
-        };
+    // Load the certificates on page load
+    window.onload = loadCertificates;
 
-        // Sample certificates data
-        const certificates = [
-            {
-                title: 'Figma',
-                organization: 'Guvi Geek Networks, IITM Research Park',
-                issueDate: 'Jan 2024',
-                link: 'https://certificate-link.com/figma'
-            },
-            {
-                title: 'Cloud Computing',
-                organization: 'NPTEL',
-                issueDate: 'Nov 2023',
-                link: 'https://certificate-link.com/cloud-computing'
-            },
-            {
-                title: 'AI For India 2.0',
-                organization: 'GUVI Geek Networks, IITM Research Park',
-                issueDate: 'Aug 2023',
-                link: 'https://certificate-link.com/ai-for-india'
-            },
-            {
-                title: 'Developing Chatbots with Azure',
-                organization: 'LinkedIn',
-                issueDate: 'Feb 2023',
-                link: 'https://certificate-link.com/chatbots-azure'
-            }
-        ];
-
-        // Function to load certificates into the table
-        function loadCertificates() {
-            const certificateList = document.getElementById('certificate-list');
-            certificates.forEach(certificate => {
-                const row = document.createElement('tr');
-
-                // Create cells for each certificate detail
-                const titleCell = document.createElement('td');
-                titleCell.textContent = certificate.title;
-
-                const organizationCell = document.createElement('td');
-                organizationCell.textContent = certificate.organization;
-
-                const dateCell = document.createElement('td');
-                dateCell.textContent = certificate.issueDate;
-
-                const linkCell = document.createElement('td');
-                const linkButton = document.createElement('a');
-                linkButton.href = certificate.link;
-                linkButton.textContent = 'View Certificate';
-                linkButton.className = 'view-button';
-                linkButton.target = '_blank';  // Open link in a new tab
-                linkCell.appendChild(linkButton);
-
-                // Append cells to the row
-                row.appendChild(titleCell);
-                row.appendChild(organizationCell);
-                row.appendChild(dateCell);
-                row.appendChild(linkCell);
-
-                // Append the row to the table
-                certificateList.appendChild(row);
-            });
-        }
-
-        // Load the certificates on page load
-        window.onload = loadCertificates;
-        
-    </script>
+</script>
 
 </body>
 </html>
