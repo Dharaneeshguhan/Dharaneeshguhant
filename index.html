@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Portfolio - Dharaneesh Guhan</title>
-            <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharaneesh Guhan</title>
+    <style>
         body {
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             color: #333;
         }
-
-        /* Header section (logo, name, and hamburger menu side by side) */
+        /* Header section */
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 20px;
             background-color: #f5f5f5;
-            border-bottom: 1px solid #ccc; /* Optional: bottom border */
+            border-bottom: 1px solid #ccc;
         }
 
         .header img {
-            width: 50px; /* Adjust the logo size */
+            width: 50px;
             margin-right: 10px;
         }
 
@@ -41,13 +42,14 @@
             border: none;
             background: none;
             cursor: pointer;
+            display: none;
         }
 
-        /* Navigation menu for larger screens (side-by-side) */
+        /* Navigation menu for larger screens */
         .nav-menu {
             display: flex;
             justify-content: flex-end;
-            gap: 20px; /* Space between links */
+            gap: 20px;
             align-items: center;
             background-color: #f5f5f5;
             padding-right: 20px;
@@ -78,69 +80,44 @@
             margin: 10px 0;
             font-size: 18px;
         }
-
-        /* Main Panel */
-        .main-panel {
-            padding: 50px;
-            text-align: center;
-        }
-
-        .typing-container {
-            display: flex;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #333;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .typing, .typing-second {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 4px solid;
-        }
-
-        .typing {
-            animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
-        }
-
-        .typing-second {
-            color: #FFC900;
-            animation: none;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            from,
-            to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: black;
-            }
-        }
-
-        /* Hide the cursor after typing */
-        .no-blink {
-            border-right: none;
-        }
-
         .intro-text {
+
             text-align: left;
             color: black;
             font-size: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 0px;
         }
 
+        .main-panel {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .typing-effect {
+            font-size: 2.5em;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #333;
+            animation: blink 0.7s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Colored spans */
+        .first-sentence {
+            color: #000; /* Blue */
+        }
+
+        .second-sentence {
+            color: #FFC900; /* Orange */
+        }
         /* Social Media */
         .social-media {
             display: flex;
@@ -149,6 +126,7 @@
 
         .social-media a {
             text-decoration: none;
+            margin-top: 15px;
             font-size: 16px;
             color: #333;
             text-align: center;
@@ -161,22 +139,24 @@
             height: 50px;
         }
 
-        /* Contact Button */
         .contact-btn {
             display: inline-block;
             padding: 10px 20px;
             background-color: #1E1D43;
             color: white;
-            left: 75px;
+            left: 150px; /* Existing left position */
             border-radius: 7px;
             font-size: 18px;
             border: none;
             cursor: pointer;
             text-decoration: none;
             margin-top: 30px;
+            margin-left: 200px;
         }
 
         /* About section (image on left, text on right) */
+        /* About section */
+
         .about {
             display: flex;
             justify-content: space-between;
@@ -186,11 +166,12 @@
         }
 
         .about img {
-            width: 400px; /* Adjust image size */
+            width: 400px;
             margin-right: 50px;
             border-radius: 10px;
         }
 
+        
         .about .text {
             max-width: 600px;
             text-align: left;
@@ -215,16 +196,7 @@
             color: #666;
         }
 
-        .btn-primary {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Media Query for smaller screens (show the hamburger menu stacked) */
+        /* Media Query for smaller screens */
         @media screen and (max-width: 768px) {
             .hamburger-menu {
                 display: block;
@@ -236,11 +208,7 @@
 
             .nav-menu-mobile {
                 display: flex;
-                flex-direction: column; /* Stack items one after the other */
-            }
-
-            .nav-menu-mobile a {
-                margin: 10px 0; /* Space between items */
+                flex-direction: column;
             }
 
             .about {
@@ -261,13 +229,21 @@
 
         /* Media Query for large screens */
         @media screen and (min-width: 769px) {
+            .hamburger-menu {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
             .nav-menu-mobile {
                 display: none;
             }
         }
-
         /* Skills Panel Styles */
         .skills-panel {
+            width: 100vw;
             max-width: 100%;
             margin: 0 auto;
             background-color: #1E1D43;
@@ -310,6 +286,7 @@
 
         /* Center the content in project section */
         .projects-section {
+            width: 100vw;
             text-align: center;
         }
 
@@ -338,6 +315,7 @@
 
         /* Certifications Section */
         .certifications-section {
+            width: 100vw;
             background-color: #1E1D43;
             padding: 30px;
             width: 100vw; /* Full width of the viewport */
@@ -463,6 +441,7 @@
         }
 
         .contact-section h1 {
+            text-align: center;
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
@@ -566,34 +545,38 @@
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="header">
-        <img src="path/to/top-logo.png" alt="Logo">
-        <h1>Dharaneesh Guhan</h1>
-        <button class="hamburger-menu" onclick="toggleMenu()">≡</button>
-    </div>
 
-    <!-- Hidden navigation menu for smaller screens -->
-    <div class="nav-menu-mobile" id="nav-menu">
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo.png" alt="Logo">
+        <h1>Dharaneesh Guhan</h1>
+        <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
+    
+
+    <!-- Navigation Menu for Desktop -->
+    <nav class="nav-menu">
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="nav-menu-mobile" id="mobileMenu">
+        <a href="#about">About</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
     </div>
+    </div>
 
     <!-- Main Panel -->
-        <div class="main-panel">
-           <div class="typing-container">
-                <span class="typing" id="first-sentence">Welcome to My World : </span>
-                <span class="typing-second" id="second-sentence"></span>
-            </div>
-        </div>
-
-    <div class="intro-text">
-        I'm Dharaneesh Guhan, a passionate and versatile coder with expertise in C, C++, and Java, coupled with a solid foundation in app and webpage development. 
-        I specialize in crafting efficient, scalable, and user-friendly solutions. My approach combines technical precision with a keen eye for design, 
-        ensuring both functionality and an engaging user experience. Constantly exploring new technologies, I aim to stay at the forefront of innovation, 
-        delivering creative and robust solutions across platforms.
+    <div class="main-panel">
+        <h1 class="typing-effect">
+            <span class="first-sentence" id="firstSentence"></span>
+            <span class="second-sentence" id="secondSentence"></span>
+        </h1>
+    </div>
+    <div class="intro-text"></div>
+    I'm Dharaneesh Guhan, a passionate and versatile coder with expertise in C, C++, and Java, coupled with a solid foundation in app and webpage development. I specialize in crafting efficient, scalable, and user-friendly solutions. My approach combines technical precision with a keen eye for design, ensuring both functionality and an engaging user experience. Constantly exploring new technologies, I aim to stay at the forefront of innovation, delivering creative and robust solutions across platforms.
     </div>
 
     <!-- Social Media -->
@@ -616,18 +599,15 @@
     <a href="#contact" class="contact-btn">Contact Me -></a>
 
     <!-- About Section -->
-    <section id="about" style="padding: 50px 0; background-color: #f7f7f7;">
-        <div class="about">
-            <img src="your-image.jpg" alt="Profile Image">
-            <div class="text">
-                <h3>This is Me</h3>
-                <h1>Dharaneesh Guhan</h1>
-                <p>You will begin to realize why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different future).</p>
-                <button class="btn-primary">Discover Now</button>
-            </div>
+    <div class="about" id="about">
+        <img src="myphoto.jpg" alt="About Me Image">
+        <div class="text">
+            <h3>About Me</h3>
+            <h1>Dharaneesh Guhan</h1>
+            <p>I am a passionate coder with proficiency in C, C++, Java, and knowledge in app and webpage development.</p>
+            <button class="btn-primary">Download Resume</button>
         </div>
-    </section>
-
+    </div>
     <!-- Skills Section -->
     <div id="skills" class="skills-panel">
         <h2>Skills</h2>
@@ -680,206 +660,434 @@
             </div>
         </div>
     </section>
-
     <!-- Education Section -->
+
     <div class="education-section">
+
         <div class="education-container">
+
             <h1 class="education-header">Education</h1>
+
             <div class="education-item">
+
                 <span class="icon"><span class="icon-background">🎓</span></span>
+
                 <div>
+
                     <h3>Sri Eshwar College of Engineering</h3>
+
                     <p>2021-2025 | CGPA: 7.82</p>
+
                     <p>Bachelors in Electronics and Communication Engineering</p>
+
                 </div>
+
             </div>
+
             <div class="education-item">
+
                 <span class="icon"><span class="icon-background">🎓</span></span>
+
                 <div>
-                    <h3>Adhaesh Vidhalaya Metric Higher Secondary School</h3>
+
+                    <h3>Adharsh Vidhalaya Metric Higher Secondary School</h3>
+
                     <p>2021-2023 | Percentage: 78%</p>
+
                     <p>Standard - 12th (HSC)</p>
+
                 </div>
+
             </div>
+
             <div class="education-item">
+
                 <span class="icon"><span class="icon-background">🎓</span></span>
+
                 <div>
-                    <h3>L.K. Higher Secondary School</h3>
+
+                    <h3>Adharsh Vidhalaya Metric Higher Secondary School</h3>
+
                     <p>2019-2021 | Percentage: 82%</p>
+
                     <p>Standard - 10th (SSLC)</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
 
     <!-- Certifications Section -->
+
     <div class="certifications-section">
+
         <h2>Certifications</h2>
+
         <!-- Surrounding dark blue section for the table -->
+
         <div class="certification-table-wrapper">
+
             <table>
+
                 <thead>
+
                     <tr>
+
                         <th>Certification</th>
+
                         <th>Issuing Organization</th>
+
                         <th>Issue Date</th>
+
                         <th>Credential</th>
+
                     </tr>
+
                 </thead>
+
                 <tbody id="certificate-list">
+
                     <!-- Certificates will be inserted here by JavaScript -->
+
                 </tbody>
+
             </table>
+
         </div>
+
     </div>
+
+
 
     <!-- Contact Section -->
+
     <div id="contact" class="contact-section">
+
         <h1>Contact Me</h1>
+
         <h2>Get in touch</h2>
+
         <p>Connect with me on social media or send me a message using the form below.</p>
 
+
+
         <!-- Social Media Links -->
+
     <div class="social-media">
+
         <a href="https://www.linkedin.com/in/dharaneeshguhan-t-a36140284">
+
             <img src="d:\\Bluetooth\\1000064060.png" alt="LinkedIn">
+
         </a>
+
         <a href="https://www.instagram.com/ig_dharaneeshguhan">
+
             <img src="d:\\Bluetooth\\1000064056.png" alt="Instagram">
+
         </a>
+
         <a href="https://youtube.com/@ihtamil-dg">
+
             <img src="youtube_icon.png" alt="YouTube">
+
         </a>
+
     </div>
 
+
+
     <!-- Contact Form -->
+
     <form action="service_s64ws2b" method="POST">
+
         <input type="text" name="name" placeholder="Your Name" required>
+
         <input type="email" name="email" placeholder="Your Email" required>
+
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
         <button type="submit">Submit</button>
+
     </form>
+
 </div>
+
+
 
 <!-- Go to Top Button -->
+
 <button id="goToTopButton" title="Go to Top">↑</button>
 
+
+
 <!-- Thank You Section -->
+
 <div class="thank-you-section">
+
     <p>Thank you for taking the time to read my profile. Feel free to contact me if you want to know more about me or if you have any opportunities that may suit my skills and interests.</p>
+
 </div>
 
+
+
 <footer class="footer" id="footer">
+
     <img src="path/to/footer-logo.png" alt="Footer Logo">
+
     <p>Dharaneesh Guhan</p>
+
 </footer>
+
+
+
 <script>
-const secondText = "  Igniting the Spark of Innovation ";
-        let secondIndex = 0;
 
-        // Function to type out the second sentence
-        function typeSecondSentence() {
-            if (secondIndex < secondText.length) {
-                document.getElementById('second-sentence').textContent += secondText.charAt(secondIndex);
-                secondIndex++;
-                setTimeout(typeSecondSentence, 100); // Adjust speed by changing timeout duration
-            } else {
-                // Remove the blinking cursor after the second sentence is fully typed
-                document.getElementById('first-sentence').classList.add('no-blink');
-                document.getElementById('second-sentence').classList.add('no-blink');
-            }
-        }
+    // Typing effect function for two sentences with different colors
 
-        // Wait for the first sentence to finish typing, then start typing the second sentence
-        setTimeout(typeSecondSentence, 3500); // Starts typing after the first animation
+    const firstSentenceText = "Welcome to My World : ";
 
-    function toggleMenu() {
-        const menu = document.getElementById('nav-menu');
-        if (menu.style.display === 'flex') {
-            menu.style.display = 'none';
+    const secondSentenceText = "Igniting the Spark of Innovation and Engineering";
+
+    let charIndex = 0;
+
+    const typingSpeed = 100;
+
+    const delayBetweenSentences = 1500; // Delay between sentences in milliseconds
+
+    const firstSentenceElement = document.getElementById('firstSentence');
+
+    const secondSentenceElement = document.getElementById('secondSentence');
+
+
+
+    function typeSentence(sentence, element, callback) {
+
+        if (charIndex < sentence.length) {
+
+            element.innerHTML += sentence.charAt(charIndex);
+
+            charIndex++;
+
+            setTimeout(() => typeSentence(sentence, element, callback), typingSpeed);
+
         } else {
-            menu.style.display = 'flex';
+
+            setTimeout(() => {
+
+                charIndex = 0;
+
+                if (callback) callback();
+
+            }, delayBetweenSentences);
+
         }
+
     }
 
-    window.onscroll = function() {
-        var footer = document.getElementById("footer");
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            // Show footer when the user reaches the bottom of the page
-            footer.style.display = "flex";
-        } else {
-            // Hide footer when the user scrolls up
-            footer.style.display = "none";
-        }
-    };
+
+
+    function startTypingEffect() {
+
+        // First type the first sentence, then the second one
+
+        typeSentence(firstSentenceText, firstSentenceElement, () => {
+
+            // After the first sentence, type the second sentence
+
+            typeSentence(secondSentenceText, secondSentenceElement);
+
+        });
+
+    }
+
+
 
     // Sample certificates data
+
     const certificates = [
+
         {
+
             title: 'Figma',
+
             organization: 'Guvi Geek Networks, IITM Research Park',
+
             issueDate: 'Jan 2024',
+
             link: 'https://certificate-link.com/figma'
+
         },
+
         {
+
             title: 'Cloud Computing',
+
             organization: 'NPTEL',
+
             issueDate: 'Nov 2023',
+
             link: 'https://certificate-link.com/cloud-computing'
+
         },
+
         {
+
             title: 'AI For India 2.0',
+
             organization: 'GUVI Geek Networks, IITM Research Park',
+
             issueDate: 'Aug 2023',
+
             link: 'https://certificate-link.com/ai-for-india'
+
         },
+
         {
+
             title: 'Developing Chatbots with Azure',
+
             organization: 'LinkedIn',
+
             issueDate: 'Feb 2023',
+
             link: 'https://certificate-link.com/chatbots-azure'
+
         }
+
     ];
 
+
+
     // Function to load certificates into the table
+
     function loadCertificates() {
+
         const certificateList = document.getElementById('certificate-list');
+
         certificates.forEach(certificate => {
+
             const row = document.createElement('tr');
 
+
+
             // Create cells for each certificate detail
+
             const titleCell = document.createElement('td');
+
             titleCell.textContent = certificate.title;
 
+
+
             const organizationCell = document.createElement('td');
+
             organizationCell.textContent = certificate.organization;
 
+
+
             const dateCell = document.createElement('td');
+
             dateCell.textContent = certificate.issueDate;
 
+
+
             const linkCell = document.createElement('td');
+
             const linkButton = document.createElement('a');
+
             linkButton.href = certificate.link;
+
             linkButton.textContent = 'View Certificate';
+
             linkButton.className = 'view-button';
+
             linkButton.target = '_blank';  // Open link in a new tab
+
             linkCell.appendChild(linkButton);
 
+
+
             // Append cells to the row
+
             row.appendChild(titleCell);
+
             row.appendChild(organizationCell);
+
             row.appendChild(dateCell);
+
             row.appendChild(linkCell);
 
+
+
             // Append the row to the table
+
             certificateList.appendChild(row);
+
         });
+
     }
 
-    // Load the certificates on page load
-    window.onload = loadCertificates;
+
+
+    // Single window.onload function to handle both actions
+
+    window.onload = function() {
+
+        startTypingEffect(); // Start the typing effect
+
+        loadCertificates();  // Load the certificates into the table
+
+    };
+
+
+
+    // Toggle the mobile navigation menu
+
+    function toggleMenu() {
+
+        var mobileMenu = document.getElementById("mobileMenu");
+
+        if (mobileMenu.style.display === "flex") {
+
+            mobileMenu.style.display = "none";
+
+        } else {
+
+            mobileMenu.style.display = "flex";
+
+        }
+
+    }
+
+
+
+    window.onscroll = function() {
+
+        var footer = document.getElementById("footer");
+
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+
+            // Show footer when the user reaches the bottom of the page
+
+            footer.style.display = "flex";
+
+        } else {
+
+            // Hide footer when the user scrolls up
+
+            footer.style.display = "none";
+
+        }
+
+    };
 
 </script>
 
 </body>
+
 </html>
