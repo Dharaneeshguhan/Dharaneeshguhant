@@ -1,0 +1,69 @@
+const Projects = () => {
+    const projects = [
+      {
+        title: "SafeMate",
+        description:
+          "Developed an IoT-based animal rest monitoring system using NodeMCU (ESP8266) and an MPU6050 accelerometer. The device calculates resting and active durations, storing the data locally in EEPROM. It continuously scans for a specific Wi-Fi network and only connects when the signal strength indicates proximity (approximately 1 cm). Upon connection, the device transmits the collected data to a Spring Boot backend via HTTP. The backend receives, maps, and stores the data in a MySQL database. This system ensures reliable data capture and transmission even in low-connectivity farm environments, helping to detect early signs of diseases",
+        domain: "Webpage using React",
+        techStack: "React, Spring Boot, and more",
+        link: "https://github.com/Dharaneeshguhan/Cattle_Monitoring",
+      },
+      {
+        title: "SerenityMeter",
+        description:
+          "SerenityMeter is an AI-driven mental health app that monitors mood, sleep, and physical activity. It provides real-time insights and interventions to improve mental well-being for individuals and professionals.",
+        domain: "App Development using Java",
+        techStack: "Java, Firebase, AI, and more",
+        link: "#",
+      },
+    ];
+  
+    return (
+      <section
+        id="projects"
+        className="w-full bg-gray-50 py-16 px-4 md:px-10 flex flex-col items-center"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-orange-500 mb-4">
+          Projects
+        </h2>
+        <p className="text-gray-600 mb-12 text-center max-w-2xl">
+          Innovations in Technology and Leadership
+        </p>
+  
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md hover:shadow-lg p-8 flex flex-col justify-between transition-all duration-300"
+            >
+              <div>
+                <h3 className="text-2xl font-semibold text-orange-600 mb-4">
+                  {project.title}
+                </h3>
+                <p className="text-gray-700 mb-6">{project.description}</p>
+                <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                  Domain
+                </h4>
+                <p className="text-gray-600 mb-4">{project.domain}</p>
+                <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                  Tech Stack
+                </h4>
+                <p className="text-gray-600">{project.techStack}</p>
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block bg-orange-400 text-white py-2 px-6 rounded-md text-center font-semibold hover:bg-orange-500 transition"
+              >
+                View Project
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  };
+  
+  export default Projects;
+  
